@@ -86,6 +86,9 @@ a:hover {
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .nav-brand {
@@ -96,6 +99,7 @@ a:hover {
 
 .nav-menu {
     list-style: none;
+    display: flex;
 }
 
 .nav-menu li {
@@ -116,12 +120,18 @@ a:hover {
     color: var(--white);
 }
 
+.nav-link.active {
+    background: rgba(255,255,255,0.22);
+}
+
 /* Mobile Menu Toggle */
 .nav-toggle {
     display: none;
     width: 30px;
     height: 30px;
     cursor: pointer;
+    border: 0;
+    background: transparent;
 }
 
 .nav-toggle span {
@@ -329,6 +339,9 @@ a:hover {
 
 .projects-grid {
     margin-top: var(--spacing-md);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--spacing-md);
 }
 
 .project-card {
@@ -336,7 +349,6 @@ a:hover {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    margin-bottom: var(--spacing-md);
     transition: transform 0.3s ease;
 }
 
@@ -472,6 +484,16 @@ a:hover {
     transition: border-color 0.3s ease;
 }
 
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 var(--spacing-md);
+}
+
+.form-group-full {
+    grid-column: 1 / -1;
+}
+
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
@@ -548,6 +570,33 @@ a:hover {
 
     .section {
         padding: var(--spacing-lg) 0;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: var(--spacing-sm) var(--spacing-md);
+        background: var(--secondary-color);
+    }
+
+    .nav-menu.active {
+        display: block;
+    }
+
+    .nav-menu li {
+        display: block;
+        margin: var(--spacing-xs) 0;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
     }
 }
 
